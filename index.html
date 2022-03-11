@@ -17,17 +17,14 @@
         <form action="" id="fmGramaticas">
             <label class="label">Reglas</label>
             <div class="field is-grouped">
-                <div class="control has-icons-left">
-                  <input class="input" name="name" type="text"  autocomplete="off">
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-user"></i>
-                  </span>
+                <div class="control ">
+                  <input class="input" name="left" type="text"  autocomplete="off">
                 </div>
-                <div class="control has-icons-left">
-                    <input class="input" name="lastName" type="text"  autocomplete="off">
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
-                    </span>
+                <div class="control">
+                    <p>--></p>
+                </div>
+                <div class="control">
+                    <input class="input" name="right" type="text"  autocomplete="off">
                   </div>
                   <div class="control">
                     <button id="btnAdd" type="button" class="button is-danger">
@@ -43,11 +40,15 @@
                   </div>
             </div>
         </form>
+        <!--  <label class="checkbox">
+            <input type="checkbox" id ="chFrist">
+            Este es la priemra regla?
+          </label> -->
         <hr>
         <div id="divElements">
-
         </div>
     </div>
+
     <script src="index.js"></script>
 </body>
 </html>

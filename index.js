@@ -10,32 +10,50 @@ const addJsonElement = json => {
 }
 
 (function load(){
-    const $form = document.getElementById("frmUsers")
+    const $form = document.getElementById("fmGramaticas")
     const $divElements = document.getElementById("divElements")
     const $btnSave = document.getElementById("btnSave")
     const $btnAdd = document.getElementById("btnAdd")
+    var aux = 0;
+    //const $chFrist = document.getElementById("chFrist")
 
     const templateElement = (data, position) => {
         return (`
             <button class="delete" onclick="removeElement(event, ${position})"></button>
-            <strong>User - </strong> ${data}
+            <strong>Regla - </strong> ${data}
         `)
     }
     $btnAdd.addEventListener("click", (event) => {
-        if($form.name.value != "" && $form.lastName.value != ""){
+        if($form.left.value != "" && $form.right.value != ""){
+            aux ++;
             let index = addJsonElement({
-                name: $form.name.value,
-                lastName: $form.lastName.value
+                id: aux,
+                name: $form.left.value,
+                lastName: $form.right.value
             })
             const $div = document.createElement("div")
-            $div.classList.add("notification", "is-link", "is-light", "py-2", "my-1")
-            $div.innerHTML = templateElement(`${$form.name.value} ${$form.lastName.value}`, index)
+            $div.classList.add("notification", "is-light", "py-2", "my-1")
+            $div.innerHTML = templateElement(`${$form.left.value} ➜ ${$form.right.value}`, index)
+
+            $divElements.insertBefore($div, $divElements.firstChild)
+
+            $form.reset()
+        }else if($form.left.value == "" && $form.right.value != ""){
+            $form.left.value = "Σ"
+            let index = addJsonElement({
+                id: aux,
+                name: $form.left.value,
+                lastName: $form.right.value
+            })
+            const $div = document.createElement("div")
+            $div.classList.add("notification", "is-light", "py-2", "my-1")
+            $div.innerHTML = templateElement(`${$form.left.value} ➜ ${$form.right.value}`, index)
 
             $divElements.insertBefore($div, $divElements.firstChild)
 
             $form.reset()
         }else{
-            alert("Complete los campos")
+            alert("Complete al menos el campo derecho")
         }
     })
 
