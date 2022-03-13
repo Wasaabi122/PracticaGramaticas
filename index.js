@@ -15,7 +15,6 @@ const addJsonElement = json => {
     const $btnSave = document.getElementById("btnSave")
     const $btnAdd = document.getElementById("btnAdd")
     var aux = 0;
-    //const $chFrist = document.getElementById("chFrist")
 
     const templateElement = (data, position) => {
         return (`
@@ -23,13 +22,12 @@ const addJsonElement = json => {
             <strong>Regla - </strong> ${data}
         `)
     }
+
     $btnAdd.addEventListener("click", (event) => {
         if($form.left.value != "" && $form.right.value != ""){
-            aux ++;
             let index = addJsonElement({
-                id: aux,
-                name: $form.left.value,
-                lastName: $form.right.value
+                alpha: $form.left.value,
+                beta: $form.right.value
             })
             const $div = document.createElement("div")
             $div.classList.add("notification", "is-light", "py-2", "my-1")
@@ -41,9 +39,8 @@ const addJsonElement = json => {
         }else if($form.left.value == "" && $form.right.value != ""){
             $form.left.value = "Σ"
             let index = addJsonElement({
-                id: aux,
-                name: $form.left.value,
-                lastName: $form.right.value
+                alpha: $form.left.value,
+                beta: $form.right.value
             })
             const $div = document.createElement("div")
             $div.classList.add("notification", "is-light", "py-2", "my-1")
@@ -61,7 +58,35 @@ const addJsonElement = json => {
         parameters = parameters.filter(el => el != null)
         const $jsonDiv = document.getElementById("jsonDiv")
         $jsonDiv.innerHTML = `JSON: ${JSON.stringify(parameters)}`
+       /* fetch('insertarReglas.php',{
+            method: 'POST',
+            body: JSON.stringify(parameters)
+        })
+          .then(respuesta=>respuesta.json)
+          .then(respuesta=>{
+
+          }).catch(error =>console.log("error", error))*/
+          for(let value of parameters){
+            fetch('insertarReglas.php',{
+                method: 'POST',
+                headers: { 
+                    'Content-type' : 'text/json' 
+                 },
+                body: JSON.stringify(value)
+            })
+              .then(respuesta => respuesta.json)
+              .then(value => {
+                console.log(value);
+              }).catch(error => console.log("error", error));
+              console.log(value);
+          }
         $divElements.innerHTML = ""
+
+       /* parameters.forEach(
+            
+            fetch('', {method:"POST", Element}).then(respuesta => respuesta.json).then(respuesta =>{ }).catch(error =>console.log("error", error))
+
+        );*/
         parameters = []
     })
 })()
