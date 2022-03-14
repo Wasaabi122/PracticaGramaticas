@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creador de gramaticas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title has-text-centered">Creador gramaticas</h1>
+        <div>
+            <p>Este programa solo es un prototipo de la primera practica de la clase de teoria de automatas.</p>
+            <p>Funciona poniendo el nombre de la gramatica que se quiere crear en el primer recuadro</p>
+            <p>Si se necesita de epsilon dejar el recuadro de la de derecha vacio, en caso de utilizar a lamba dejar ambos vacios</p>
+        </div>
+        <div id="jsonDiv">
+            <div class="container">
+                <form action="" id="fNg">
+                    <label class="label">Ingrese el nombre de la gramatica</label>
+                    <div class="field is-grouped">
+                        <div class="control ">
+                          <input class="input" name="nombre" type="text"  autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <form action="" id="fmGramaticas">
+            <label class="label">Reglas</label>
+            <div class="field is-grouped">
+                <div class="control ">
+                  <input class="input" name="left" type="text"  autocomplete="off">
+                </div>
+                <div class="control">
+                    <p>--></p>
+                </div>
+                <div class="control">
+                    <input class="input" name="right" type="text"  autocomplete="off">
+                  </div>
+                  <div class="control">
+                    <button id="btnAdd" type="button" class="button is-danger">
+                        <span class="icon">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                      </button>
+                  </div>
+                  <div class="control">
+                    <button id="btnSaveR" type="button" class="button is-info">
+                        Guardar
+                      </button>
+                  </div>
+            </div>
+        </form>
+        <br>
+        <div >
+            <button class="button is-danger is-normal is-center" id="btnReg">regesar a menu</button>
+        </div>
+        <div id="divElements">
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="cGrama.js"></script>
+</body>
+
+</html>

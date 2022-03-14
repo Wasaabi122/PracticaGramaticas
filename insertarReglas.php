@@ -1,16 +1,14 @@
 <?php
-
+$conexion = mysqli_connect('localhost','root','','gramaticas');
 var_dump($_POST);
- /*   try{
-        $conexion = new PDO('mysq:host=localhost;port=3306;dbname=gramaticas', 'root', '');
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        echo json_encode('Conectado correctamente');
-
-        $pdo = $conexion->prepare('insert into ');
-    } catch(PDOException $error){
-        echo $error->getMesage();
-        die();
-    }
-*/
-
+$gramatica = $_POST["gramatica"];
+$sql = "SELECT idGrama from gramaticas where NOMBRE = '$gramatica'";
+$idG = mysqli_query($conexion,$sql);
+while($row = mysqli_fetch_array($idG)){
+    $id = $row['idGrama'];
+  }
+    $alpha = $_POST["alpha"];
+    $beta = $_POST["beta"];
+    $sql="INSERT INTO reglas (alpha, beta, idGrama) values ('$alpha', '$beta','$id' )";
+    echo mysqli_query($conexion,$sql);
+?>

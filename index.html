@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input dynamic</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1 class="title has-text-centered">Crea las reglas gramaticales</h1>
-        <div id="jsonDiv">
-            
+    <head>
+    <div>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Practica 1</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+        <link rel="stylesheet" href="styles.css">
         </div>
-        <form action="" id="fmGramaticas">
-            <label class="label">Reglas</label>
-            <div class="field is-grouped">
-                <div class="control ">
-                  <input class="input" name="left" type="text"  autocomplete="off">
-                </div>
-                <div class="control">
-                    <p>--></p>
-                </div>
-                <div class="control">
-                    <input class="input" name="right" type="text"  autocomplete="off">
-                  </div>
-                  <div class="control">
-                    <button id="btnAdd" type="button" class="button is-danger">
-                        <span class="icon">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                      </button>
-                  </div>
-                  <div class="control">
-                    <button id="btnSave" type="button" class="button is-info">
-                        Save
-                      </button>
-                  </div>
+    </head>
+    <body>
+        <div>
+            <h1 class="title has-text-centered">Menu principal</h1>
+            <div>
+                <br> 
+                <label class="label has-text-centered">
+                    <div>Crear una gramatica</div>
+                    <br> 
+                    <div>
+                    <button id="btnMkG" type="button" class="button is-danger">
+                        Entrar
+                        </button>
+                    </label>
+                    </div>
             </div>
-        </form>
-        <div id="divElements">
+            <div>
+                <br> 
+                <label class="label has-text-centered">
+                    <div>
+                    Consultar gramaticas
+                    </div>
+                    <br> 
+                    <div>
+                    <button id="btnSeeG" type="button" class="button is-danger">
+                        Entrar
+                        </button>
+                    </div>
+                    </label> 
+            </div>
         </div>
-    </div>
-    <script src="index.js"></script>
-</body>
+        <script src = "index.js"></script>
+    </body>
 </html>
